@@ -18,7 +18,7 @@ export const StockProvider = ({ children }: StockProviderProps) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("q");
+        const response = await fetch("https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=RIBXT3XYLI69PC0Q");
         const result: StockTimeSeries = await response.json();
         const timeSeries: StockTimeSeries = result["Time Series (5min)"];
         setTimeSeries(timeSeries);
